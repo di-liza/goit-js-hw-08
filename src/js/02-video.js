@@ -16,7 +16,10 @@ function saveVideoTime(data) {
     JSON.stringify(data.seconds)
   );
 }
+
 function loadSavedVideoTime() {
   currentTime = JSON.parse(localStorage.getItem('videoplayer-current-time'));
-  player.setCurrentTime(currentTime);
+  if (currentTime !== null) {
+    player.setCurrentTime(parseInt(currentTime));
+  }
 }
